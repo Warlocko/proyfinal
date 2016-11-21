@@ -27,11 +27,10 @@ public class Proyectofinal
 				altaAnimal(animales, animales2 , x);
 				x++;
 			break;
-			case 2:
 
+			case 2:
 				datosMedico[i]=altaMedico();
 				i++;
-
 			break;
 
 			case 3:
@@ -77,10 +76,8 @@ public class Proyectofinal
 			anim[j][6]= "Edad: "+sc.nextLine();
 			System.out.print("Anio de ingreso del animal: ");
 			anim2[j][0]=sc.nextInt();
-			sc.nextLine();
 			System.out.print("Mes de ingreso del animal: ");
 			anim2[j][1]=sc.nextInt();
-			sc.nextLine();
 		}
 	//Función 2: Dar de alta a un nuevo médico
 	public static String altaMedico()
