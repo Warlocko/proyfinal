@@ -1,0 +1,117 @@
+import java.util.Scanner;
+public class Proyectofinal
+{
+	public static void main(String [] args)
+	{
+		String [][] animales = new String [100][7];
+		int [][] animales2 = new int [100][2];
+		String [] reportes = new String [100];
+		Scanner sc = new Scanner (System.in);
+		int reiniciar=1, accion, i=0, x=0;
+		String[] datosMedico=new String [100];
+
+		//Menu principal para seleccionar lo que se desea hacer
+		while (reiniciar == 1)
+		{
+			System.out.println("Selecciona lo que deseas hacer");
+			System.out.println("1) Dar de alta a una animal.");
+			System.out.println("2) Dar de alta a un medico.");
+			System.out.println("3) Lista de animales registrados.");
+			System.out.println("4) Lista de medicos en reserva.");
+			System.out.println("5) Cantidad de animales atendidos por cierto medico.");
+			System.out.println("6) Salir (se generara un reporte.");
+			accion = sc.nextInt();
+			sc.nextLine();
+			switch (accion) {
+			case 1:
+				altaAnimal(animales, animales2 , x);
+				x++;
+			break;
+			case 2:
+
+				datosMedico[i]=altaMedico();
+				i++;
+
+			break;
+
+			case 3:
+			for (int q=0;q<x;q++){
+				System.out.println("Animal "+(q+1));
+				for (int z=0;z<6;z++){
+				System.out.println(animales[q][z]);
+				}
+				System.out.println("Anio de entrada "+animales2[q][0]);
+				System.out.println("Mes de entrada "+animales2[q][1]);
+				}
+			break;
+
+			case 4:
+				for(int a=0;a<i;a++)
+				{
+					listaMedico(a, datosMedico[a]);
+				}
+			break;
+
+			default:
+				System.out.println("Por favor ingresa un numero valido");
+			break;
+		}
+		}
+	}
+	//Función 1: Dar de alta a un animal
+		public static void altaAnimal(String [][] anim, int [][] anim2, int j){
+			Scanner sc = new Scanner (System.in);
+			System.out.print("Genero del animal: ");
+			anim[j][0]= "Genero: "+sc.nextLine();
+			System.out.print("Especie del animal: ");
+			anim[j][1]= "Especie: "+sc.nextLine();
+			System.out.print("Peso del animal: ");
+			anim[j][2]= "Peso: "+sc.nextLine();
+			System.out.print("Altura del animal: ");
+			anim[j][3]= "Altura: "+sc.nextLine();
+			System.out.print("Descripcion del animal: ");
+			anim[j][4]= "Descripcion: "+sc.nextLine();
+			System.out.print("Foto del animal: ");
+			anim[j][5]= "Foto: "+sc.nextLine();
+			System.out.print("Edad del animal: ");
+			anim[j][6]= "Edad: "+sc.nextLine();
+			System.out.print("Anio de ingreso del animal: ");
+			anim2[j][0]=sc.nextInt();
+			sc.nextLine();
+			System.out.print("Mes de ingreso del animal: ");
+			anim2[j][1]=sc.nextInt();
+			sc.nextLine();
+		}
+	//Función 2: Dar de alta a un nuevo médico
+	public static String altaMedico()
+	{
+		Scanner sc = new Scanner (System.in);
+		String nombreA, edadA, fechaA, lugarA;
+		System.out.print("Nombre del médico: ");
+		nombreA=sc.nextLine();
+		System.out.print("Edad del médico: ");
+		edadA=sc.nextLine();
+		System.out.print("Fecha de ingreso del médico: ");
+		fechaA=sc.nextLine();
+		System.out.print("Lugar de precedencia del médico: ");
+		lugarA=sc.nextLine();
+		String b=(nombreA+"\n"+edadA+"\n"+fechaA+"\n"+lugarA);
+		return b;
+	}
+		//Función 3: Lista de animales registrados
+	public static void listaAnimales(int contador, String animales)
+	{
+	String[] animalesA=new String[100];
+	animalesA[contador]=animales;
+	System.out.println("Animal "+(contador+1)+": "+animalesA[contador]);
+	}
+		//Función 4: Lista de médicos en reserva
+	public static void listaMedico(int contador, String medicos)
+	{
+		String[] medicosA=new String[100];
+		medicosA[contador]=medicos;
+		System.out.println("Medico "+(contador+1)+": "+medicosA[contador]);
+	}
+		//Función 5: Cantidad de animales antendidos por cierto médico
+	//Función 6: Reporte de salida
+}
